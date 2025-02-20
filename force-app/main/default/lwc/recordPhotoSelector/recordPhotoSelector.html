@@ -1,5 +1,9 @@
 <template>
     <div class="container">
+        <!-- SPINNER ON LOAD -->
+        <lightning-spinner lwc:if={isLoading} alternative-text="Loading..." title="Loading" size="medium"></lightning-spinner>
+
+        <!-- ATTACHMENT SELECTION -->
         <template if:true={attachments.length}>
             <div class="grid">
                 <template for:each={attachments} for:item="att">

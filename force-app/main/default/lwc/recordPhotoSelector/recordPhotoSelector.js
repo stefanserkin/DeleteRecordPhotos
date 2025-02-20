@@ -6,13 +6,19 @@ export default class RecordPhotoSelector extends LightningElement {
     @api selectedIds = [];
     @track attachments = [];
 
+    isLoading = false;
+
     @wire(getAttachments, { contactId: '$recordId' })
     wiredAttachments({ error, data }) {
+        const baseUrl = window.location.origin;
+        console.log('baseUrl --> ',baseUrl);
+        const fileDownloadPath = '/servlet/servlet.FileDownload';
+        console.log('fileDownloadPath --> ',fileDownloadPath);
         if (data) {
             this.attachments = data.map(att => ({
                 id: att.Id,
                 name: att.Name,
-                dataUrl: `https://asphaltgreen--uat.sandbox.lightning.force.com/servlet/servlet.FileDownload?file=${att.Id}`
+                dataUrl: `${baseUrl}${fileDownloadPath}?file=${att.Id}`
             }));
             console.log(JSON.stringify(this.attachments));
         } else if (error) {
