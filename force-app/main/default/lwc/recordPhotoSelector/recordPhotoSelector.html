@@ -1,0 +1,20 @@
+<template>
+    <div class="container">
+        <template if:true={attachments.length}>
+            <div class="grid">
+                <template for:each={attachments} for:item="att">
+                    <div key={att.id} class="image-card">
+                        <img src={att.dataUrl} alt={att.name} class="thumbnail"/>
+                        <label>
+                            <input type="checkbox" data-id={att.id} onchange={handleSelection} />
+                            Select
+                        </label>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <template if:false={attachments.length}>
+            <p>No record photos found.</p>
+        </template>
+    </div>
+</template>
