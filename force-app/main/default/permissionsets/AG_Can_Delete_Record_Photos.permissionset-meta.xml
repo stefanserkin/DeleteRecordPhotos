@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Can_Delete_Record_Photos</name>
+    </customPermissions>
+    <description>Access to delete record photos uploaded through Traction Rec&apos;s Image Capture component</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>AG Can Delete Record Photos</label>
+</PermissionSet>
